@@ -56,7 +56,7 @@ def practice_ide(request, query):
             myFile.write(doc)
             myFile.close()
             f.close()
-            p1 = subprocess.run('practice/static/TDM-GCC-64/com/g++ practice/files/program.cpp -o practice/files/program.exe',capture_output=True,text=True,shell = False)
+            p1 = subprocess.run('g++ practice/files/program.cpp -o practice/files/program.exe',capture_output=True,text=True,shell = False)
             if(p1.stderr):
                 result_compiler = str(p1.stderr,"UTF-8")
                 return render(request,"practice/practice_online.html",{"form":form,"result":result_compiler})
@@ -95,7 +95,7 @@ def online_ide(request):
             myFile.write(doc)
             myFile.close()
             f.close()
-            p1 = subprocess.run('practice/static/TDM-GCC-64/com/g++ practice/files/program1.cpp -o practice/files/program1.exe',capture_output=True,text=True,shell = False)
+            p1 = subprocess.run('g++ practice/files/program1.cpp -o practice/files/program1.exe',capture_output=True,text=True,shell = False)
             if(p1.stderr):
                 result_compiler = re.split("practice/files/program1.cpp: |practice/files/program1.cpp:\d+:\d+: ",p1.stderr)
                 error = ""
