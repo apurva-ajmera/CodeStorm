@@ -1,0 +1,39 @@
+{% extends "blog/base1.html" %}
+{% load static %}
+{% block content %}
+<article class="content-section">
+  <center>
+    <img src="{% static 'blog/img/home-page.png' %}" style="max-width:700px" height="auto">
+    <h4>Read</h4>
+    <p>You can find and read article based on basic data structure and algorithms</p>
+    <br>
+    <br>
+    <img src="{% static 'blog/img/question-web.png' %}" style="max-width:700px" height="auto">
+    <h4>Related Question</h4>
+    <p>There is related question on particular article</p>
+    <br>
+    <br>
+    <img src="{% static 'blog/img/discussion.png' %}" style="max-width:700px" height="auto">
+    <h4>Discussion</h4>
+    <p>
+      If you have any doubt then you can ask to the community and also give response to other questions
+    </p>
+    <br>
+    <br>
+    <img src="{% static 'blog/img/online-ide.png' %}" style="max-width:700px" height="auto">
+    <h4>Online IDE</h4>
+    <p>
+      Solve questions by doing coding so
+      here you can find online ide where you can code in c or c++
+    </p>
+    <br>
+    <br>
+    <img src="{% static 'blog/img/submission-list.png' %}" style="max-width:700px" height="auto">
+    <h4>My Submission</h4>
+    <p>
+      you can find your all submission of all questions
+    </p>
+  </center>
+</article>
+
+{% endblock content %}

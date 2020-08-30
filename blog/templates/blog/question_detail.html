@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for question in questions %}
+  <article class="media content-section">
+    <div class="media-body">
+      <h2 class="article-title">{{ question.question }}</h2>
+      {{ question.Que_definition|safe }}
+      <p><b>Want to write some code thenn click on </b><a href="{% url 'practice-online' question.id %}"><u>practice</u>.</a></p>
+    </div>
+  </article>
+  <a href="{% url 'submission-list' question.id %}" style="float" class="btn btn-primary btn-sm" role="button">My Submission</a>
+  <a href="{% url 'discussion' question.id %}" style="float" class="btn btn-primary btn-sm" role="button">Discussion</a>
+  <br>
+  &nbsp;
+{% endfor %}
+{% endblock %}

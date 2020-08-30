@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/img-style.css' %}">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    {% if title %}
+        <title>CodeStorm - {{title}}</title>
+    {% else %}
+        <title>CodeStorm</title>
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+          <div class="container">
+            <a class="navbar-brand mr-4" href="/">CodeStorm</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+                <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                <a class="nav-item nav-link" href="{% url 'blog-topic' %}">Topics</a>
+              </div>
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                {% if user.is_authenticated %}
+                  <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                  <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                  <a class="nav-item nav-link" href="{% url 'ide' %}">IDE</a>
+                  <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                  <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                  <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <main role="main" class="container">
+      <div class="top">
+        <h3 style="color:blue"><u><p style="text-align:center">Topics</p></u></h3>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {% block content %}
+            <article class="content-section">
+              <div class="row">
+
+                  <a class="btn" href="{% url 'blog-search' 'stack' %}">
+                    <img src="{% static 'blog/img/stack-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'queue' %}">
+                    <img src="{% static 'blog/img/queue-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'linked-list' %}">
+                    <img src="{% static 'blog/img/ll-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'doubly-linked-list' %}">
+                    <img src="{% static 'blog/img/dll-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'tree' %}">
+                    <img src="{% static 'blog/img/tree-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'binary-search-tree' %}">
+                    <img src="{% static 'blog/img/bst-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+                  <a class="btn" href="{% url 'blog-search' 'graph' %}">
+                    <img src="{% static 'blog/img/graph-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'divide-conquer' %}">
+                    <img src="{% static 'blog/img/dc-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'bubble-sort' %}">
+                    <img src="{% static 'blog/img/bs-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'insertion-sort' %}">
+                    <img src="{% static 'blog/img/is-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'selection-sort' %}">
+                    <img src="{% static 'blog/img/ss-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'merge-sort' %}">
+                    <img src="{% static 'blog/img/ms-rep.png' %}" width="100%" height="auto">
+                  </a>
+
+                  <a class="btn" href="{% url 'blog-search' 'quick-sort' %}">
+                    <img src="{% static 'blog/img/quick_s-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'heap-sort' %}">
+                    <img src="{% static 'blog/img/heap-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'linear-search' %}">
+                    <img src="{% static 'blog/img/linear_s-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'binary-search' %}">
+                    <img src="{% static 'blog/img/bin-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'greedy-algorithm' %}">
+                    <img src="{% static 'blog/img/ga-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'job-scheduling' %}">
+                    <img src="{% static 'blog/img/js-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+                  <a class="btn" href="{% url 'blog-search' 'greedy-knapsack' %}">
+                    <img src="{% static 'blog/img/gk-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'activity-selection' %}">
+                    <img src="{% static 'blog/img/as-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'dynamic-programming' %}">
+                    <img src="{% static 'blog/img/dp-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'dynamic-knapsack-problem' %}">
+                    <img src="{% static 'blog/img/kp-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'coin-making-change' %}">
+                    <img src="{% static 'blog/img/cmp-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+
+                  <a class="btn" href="{% url 'blog-search' 'longest-common-subsequence' %}">
+                    <img src="{% static 'blog/img/lcs-topics.png' %}" width="100%" height="auto">
+                  </a>
+
+                  <a class="btn" href="{% url 'blog-search' 'AVL-Tree' %}">
+                    <img src="{% static 'blog/img/avl-rep.png' %}" width="100%" height="auto">
+                  </a>
+              </div>
+
+            </article>
+          {% endblock %}
+        </div>
+      </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+  <footer>
+    <center>
+      <h4 style="color:#00ffff">CodeStrom</h4>
+      <p>
+        <small style="size:26px;color:red">NOTE:-</small>
+        <small style="size:22px;color:yellow">This is website is under development if you find any query then <a href="{% url 'contact-admin' %}">contact</a> here.</small>
+      </p>
+    </center>
+  </footer>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/blog/img-style.css">
+  </head>
+  <body>
+    <div class="row">
+
+        <a class="btn" href="{% url 'blog-search' 'stack' %}">
+          <img src="{% static 'blog/img/stack-rep.png' %}" width="100%" height="auto">
+        </a>
+
+
+        <a class="btn" href="{% url 'blog-search' 'stack' %}">
+          <img src="{% static 'blog/img/queue-rep.png' %}" width="100%" height="auto">
+        </a>
+
+
+        <a class="btn" href="{% url 'blog-search' 'stack' %}">
+          <img src="{% static 'blog/img/ll-rep.png' %}" width="100%" height="auto">
+        </a>
+
+
+  </body>
+</html>
+--->

@@ -1,0 +1,64 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<article class="content-section">
+  <div class="">
+    <img class="rounded-circle article-img"  src="{{ object.author.profile.image.url }}" alt="">
+  </div>
+  <div class="">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ object.author }}</a>
+    </div>
+    <h2 class="article-title">{{ object.title }}</h2>
+
+      {{ object.content|safe }}
+  </div>
+  {% if object.title == "Stack" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Stack' %}">Question</a></p>
+  {% elif object.title == "Queue" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Queue' %}">Question</a></p>
+  {% elif object.title == "Linked List" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Linked-List' %}">Question</a></p>
+  {% elif object.title == "Doubly Linked List" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Doubly-Linked-List' %}">Question</a></p>
+  {% elif object.title == "Binary Search Tree" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Binary-Search-Tree' %}">Question</a></p>
+  {% elif object.title == "Balanced Binary Search Tree" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Balanced-Binary-Search-Tree' %}">Question</a></p>
+  {% elif object.title == "Heap" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Heap' %}">Question</a></p>
+  {% elif object.title == "Array" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Array' %}">Question</a></p>
+  {% elif object.title == "Divide and Conquer and Recursion" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Divide-Conquer' %}">Question</a></p>
+  {% elif object.title == "Bubble Sort" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Bubble-Sort' %}">Question</a></p>
+  {% elif object.title == "Insertion Sort" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Insertion-Sort' %}">Question</a></p>
+  {% elif object.title == "Selection Sort" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Selection-Sort' %}">Question</a></p>
+  {% elif object.title == "Merge Sort" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Merge-Sort' %}">Question</a></p>
+  {% elif object.title == "Heap Sort" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Heap-Sort' %}">Question</a></p>
+  {% elif object.title == "Searching Algorithm,Linear Search and Binary Search" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Linear-Search' %}">Question</a></p>
+  {% elif object.title == "Searching Algorithm,Linear Search and Binary Search" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Binary-Search' %}">Question</a></p>
+  {% elif object.title == "Job Scheduling With Deadline" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Job-Scheduling' %}">Question</a></p>
+  {% elif object.title == "Greedy Knapsack Algorithm or Fractional Knapsack Algorithm" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Greedy-Knapsack-Problem' %}">Question</a></p>
+  {% elif object.title == "Activity Selection Problem" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Activity-Selection-Problem' %}">Question</a></p>
+  {% elif object.title == "0/1 Knapsack Problem or Dynamic Knapsack Problem" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'Knapsack-Problem' %}">Question</a></p>
+  {% elif object.title == "Longest Common Subsequence" %}
+    <p><b>For doing practice on this topic click on </b><a href="{% url 'question-list' 'LCS' %}">Question</a></p>
+  {% endif %}
+  <div class="">
+      <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+      <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+  </div>
+
+</article>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for practice in practices %}
+      <b>Que: {{ practice.question }}</b><br>
+      <b>Ans:</b> {{ practice.answer }}<br>
+      <br>
+    {% endfor %}
+    <div class="">
+      <p>If you want to share your experience and want to upload questions from your side then <a href="{% url 'practice-create' %}">upload</a> on this page.</p>
+    </div>
+    <div class="">
+      <p>To test and want to hone your skills then click on <a href="{% url 'practice-online' %}">IDE.</a></p>
+    </div>
+{% endblock content %}

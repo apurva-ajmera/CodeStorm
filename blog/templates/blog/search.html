@@ -1,0 +1,327 @@
+ {% extends "blog/base.html" %}
+{% block content %}
+    {% for post in posts %}
+      {% if query == "stack" %}
+        {% if post.title == "Stack" or post.title == "Implementation of stack" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "queue" %}
+        {% if post.title == "Queue" or post.title == "Implementation of queue" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "linked-list" %}
+        {% if post.title == "Linked List" or post.title == "Implementation of Linked List" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "doubly-linked-list" %}
+        {% if post.title == "Doubly Linked List" or post.title == "Doubly Linked List Deletion" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "tree" %}
+        {% if post.title == "Tree" or post.title == "Binary Trees" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "binary-search-tree" %}
+        {% if post.title == "Binary Search Tree" or post.title == "Implementation of Binary Search Tree"  or post.title == "Deleting a node from Binary Search Tree" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "graph" %}
+        {% if post.title == "Graph" or post.title == "Representation of Graph" or post.title == "Graph Traversal" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "divide-conquer" %}
+        {% if post.title == "Divide and Conquer and Recursion" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "bubble-sort" %}
+        {% if post.title == "Bubble Sort" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "insertion-sort" %}
+        {% if post.title == "Insertion Sort" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "selection-sort" %}
+        {% if post.title == "Selection Sort" %}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "quick-sort" %}
+        {% if post.title == "Quick Sort"%}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "merge-sort" %}
+        {% if post.title == "Merge Sort"%}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "heap-sort" %}
+        {% if post.title == "Heap Sort"%}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "linear-search" %}
+        {% if post.title == "Searching Algorithm,Linear Search and Binary Search"%}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "binary-search" %}
+        {% if post.title == "Searching Algorithm,Linear Search and Binary Search"%}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+      {% elif query == "greedy-algorithm" %}
+        {% if post.title == "Introduction to Greedy Algorithms"%}
+          <article class="content-section">
+            <div class="">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+              </div>
+              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+              {{ post.content|safe }}
+            </div>
+          </article>
+        {% endif %}
+        {% elif query == "job-scheduling" %}
+          {% if post.title == "Job Scheduling With Deadline"%}
+            <article class="content-section">
+              <div class="">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ post.author }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.content|safe }}
+              </div>
+            </article>
+          {% endif %}
+        {% elif query == "greedy-knapsack" %}
+          {% if post.title == "Greedy Knapsack Algorithm or Fractional Knapsack Algorithm"%}
+            <article class="content-section">
+              <div class="">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ post.author }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.content|safe }}
+              </div>
+            </article>
+          {% endif %}
+        {% elif query == "activity-selection" %}
+          {% if post.title == "Activity Selection Problem"%}
+            <article class="content-section">
+              <div class="">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ post.author }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.content|safe }}
+              </div>
+            </article>
+          {% endif %}
+        {% elif query == "dynamic-programming" %}
+          {% if post.title == "Dynamic Programming"%}
+            <article class="content-section">
+              <div class="">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ post.author }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.content|safe }}
+              </div>
+            </article>
+          {% endif %}
+        {% elif query == "dynamic-knapsack-problem" %}
+          {% if post.title == "0/1 Knapsack Problem or Dynamic Knapsack Problem"%}
+            <article class="content-section">
+              <div class="">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ post.author }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.content|safe }}
+              </div>
+            </article>
+          {% endif %}
+        {% elif query == "coin-making-change" %}
+          {% if post.title == "The Change Making Problem-Dynamic Programming"%}
+            <article class="content-section">
+              <div class="">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ post.author }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.content|safe }}
+              </div>
+            </article>
+          {% endif %}
+        {% elif query == "longest-common-subsequence" %}
+          {% if post.title == "Longest Common Subsequence"%}
+            <article class="content-section">
+              <div class="">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ post.author }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.content|safe }}
+              </div>
+            </article>
+          {% endif %}
+          {% elif query == "AVL-Tree" %}
+            {% if post.title == "Balance Binary Search Tree or AVL Tree"%}
+              <article class="content-section">
+                <div class="">
+                  <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>
+                  </div>
+                  <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                  {{ post.content|safe }}
+                </div>
+              </article>
+            {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% if is_paginated %}
+
+      {% if page_obj.has_previous %}
+        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+
+    {% endif %}
+{% endblock content %}

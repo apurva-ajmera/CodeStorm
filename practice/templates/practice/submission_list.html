@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Username</th>
+    <th>Question</th>
+    <th>Solution</th>
+  </tr>
+  {% for snippet in snippets %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ snippet.author }}</td>
+    <td>{{ snippet.que_id }}</td>
+    <td><a href="{% url 'show-submission' snippet.id %}">view</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  var tb = document.getElementsByTagName('table');
+  tb[0].setAttribute("border","1px solid black")
+</script>
+
+{% endblock %}

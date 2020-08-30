@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for question in questions %}
+  <article class="media content-section">
+    <div class="media-body">
+      <h2><a class="article-title" href="{% url 'question-detail' question.id %}">{{ question.question }}</a></h2>
+      {{ question.Que_definition|safe }}
+    </div>
+  </article>
+{% endfor %}
+{% endblock %}

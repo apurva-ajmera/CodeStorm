@@ -1,0 +1,134 @@
+{% extends 'blog/base1.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<button type="button" class="btn btn-primary btn-sm" onclick="showDoubt()" name="button">Ask Doubt</button>
+<div class="content-section" id="doubt" style="margin-top:10px;display:none;">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Write doubt</legend>
+            {{ form|crispy }}
+            {{ form.media }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Ask</button>
+            <button class="btn btn-outline-danger" type="button" onclick="hideDoubt()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+{% for doubt in doubts %}
+  <div class="content-section" style="margin-top:10px;">
+    <div class="media">
+      <img class="rounded-circle" src="{{ doubt.author.profile.image.url }}">
+
+      <div class="media-body">
+        <a href="{% url 'profile' %}">{{doubt.author.username}}</a>
+        <div class="" style="margin-top:5px;">
+        <span style="font-size:18px;">{{doubt.ask|safe}}</span>
+        </div>
+
+
+        <div >
+
+        </div>
+
+        <div class="media-body" style="float:left;margin-top:5px;">
+          <form id="likeForm" style="clear:both;margin-left:0px;margin-top:0px;padding-top:0px;padding-left:0px;" action="{% url 'doubt-like' doubt.id %}" method="post">
+            {% csrf_token %}
+            <small id="Likes" class="doubtResp" style="font-size:14px;color:green;">{{doubt.like_doubt.count}}</small>&nbsp;<small id="doubtLike" style="font-size:14px;color:green;">Like</small><br>
+            <input type="text" name="" style="display:none;" class="doubtOf" id="doubtIndex" value="{{forloop.counter}}">
+
+            {% if user.is_authenticated %}
+              <button type="submit" name="doubt_id" value="{{doubt.id}}" style="background-color:white;border:0px;" name="button" id="like"><i style="font-size:18px;color:black;" class="fa fa-thumbs-up" value="{{forloop.counter}}" id="doubtThumb"></i></button>Like &nbsp; &nbsp; &nbsp;<i class="fa fa-reply" id="for_reply" onclick="showReply('{{forloop.counter}}')"></i>&nbsp;Reply
+            {% else %}
+              <span style="opacity:0.40"><button type="button"  style="background-color:white;border:0px;" name="button" id="like"><i style="font-size:18px;color:black;opacity:0.20" class="fa fa-thumbs-up" value="{{forloop.counter}}" id="doubtThumb"></i></button>Like &nbsp; &nbsp; &nbsp;<i class="fa fa-reply"  id="for_reply" onclick="showReply('{{forloop.counter}}')" style="opacity:0.40"></i>&nbsp;Reply</span>
+            {% endif %}
+          </form>
+        </div>
+
+        <div class="media-body">
+          <div class="for_reply" style="display:none;">
+            <form class="form-horizontal" method="POST" id="reply" style="clear:both;paddin-top:10px;margin-top:10px;" action="{% url 'reply' doubt.id %}">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form1|crispy }}
+                    {{ form1.media }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Reply</button>
+                    <button class="btn btn-outline-danger" type="button" onclick="hideReply('{{forloop.counter}}')">Cancel</button>
+                </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    {% for reply in replys %}
+      {% for r in reply %}
+        {% if r.doubt_id == doubt %}
+          <div class="media" style="margin-left:120px;margin-top:15px;">
+            <img class="rounded-circle" src="{{ r.author.profile.image.url }}">
+            <div class="media-body">
+              <a href="{% url 'profile' %}">{{r.author.username}}</a>
+              <div class="" style="margin-top:5px;">
+                <span style="font-size:18px;">{{r.reply|safe}}</span>
+              </div>
+              <small style="font-size:14px;color:green;margin-left:2px;">{{r.like_reply.count}}&nbsp;Like</small>
+              <div class="media-body" style="clear:both;margin-top:5px;">
+                <form id="likereplyform" class="" style="clear:both;padding-left:0px;margin-left:0px;padding-top:0px;margin-top:0px;" action="{% url 'reply-like' doubt.id r.id %}" method="post">
+                  {% csrf_token %}
+                  {% if user.is_authenticated %}
+                    <button type="submit" name="doubt_id" value="" style="background-color:white;border:0px;" onclick="" name="button" id="like"><i style="font-size:18px;color:black;" class="fa fa-thumbs-up" id="thumb"></i></button>Like 
+                  {% else %}
+                    <span style="opacity:0.40;"><button type="submit" name="doubt_id" value="" style="background-color:white;border:0px;" onclick="notColor()" name="button" id="like"><i style="font-size:18px;color:black;" class="fa fa-thumbs-up" id="thumb"></i></button>Like
+                  {% endif %}
+
+                </form>
+              </div>
+
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+{% endfor %}
+
+
+<script type="text/javascript">
+  var d = document.getElementById('doubt');
+  var r = document.getElementById('reply');
+  var show =  document.getElementsByClassName('for_reply')
+
+  document.write(r.style.display);
+
+  function showDoubt()
+  {
+    d.style.display="block";
+  }
+
+  function hideDoubt()
+  {
+    d.style.display = "none";
+  }
+
+  function showReply(x)
+  {
+    //r.style.display = "block";
+    show[x-1].style.display = "block";
+  }
+
+  function hideReply(x)
+  {
+    show[x-1].style.display = "none";
+  }
+
+
+//<span><small style="float:left;font-size:14px;color:green;">{{r.like_reply.count}}&nbsp;Like</small></span>
+</script>
+{% endblock %}
