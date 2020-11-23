@@ -79,3 +79,14 @@ Performing compilation and run operation you need one module which is subprocess
 </pre>   
 
 For running a program you have to insert inputs in input parameter. This parameter takes the input means if you write program for addition of two numbers so this will take two numbers as an input.
+
+<h2>Deployment to AWS,GCP OR Azure etc.</h2>
+
+If you want to deploy this project then you need a compiler. In this project we use only c and c++ language so you can download GCC compiler for this project and then add your 
+TDM-GCC-64 folder(this folder exists in C: drive) and paste it into that directory where you want to prform compilation and run a program. Here we compile and run a program into practice folder. Now you have to edit subprocess.run() line in your views.py file. 
+
+<pre>
+  p1 = subprocess.run('/TDM-GCC-64/bin/g++.exe filename.cpp -o filename.exe', capture_output=True, text=True, shell=false)
+</pre>
+
+Above line find the g++.exe file from TDM-GCC-64 folder and then it will execute and take the filename.cpp file to compile and make filename.exe file
