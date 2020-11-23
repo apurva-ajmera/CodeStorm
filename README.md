@@ -1,4 +1,4 @@
-# CodeStorm
+# CodeStorm-Competitve Programming Website
 competitive programming website like geeksforgeeks and hackerrank etc.
 
 This project developed on django framework.Where you can find articles on basic data structure like Stack,Queue,Tree and algorithms like Sorting,Greedy and Dynamic programming.Each
